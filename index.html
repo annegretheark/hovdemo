@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#06101c"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<title>Rett i Lomma – Hovslager</title>
+<style>
+:root{--bg:#06101c;--panel:#0b1929;--card:#102338;--line:#29435f;--text:#f7fbff;--muted:#a9bdd0;--blue:#2494ff;--green:#35d36b;--yellow:#f7bd35;--red:#ff6860;--shadow:0 18px 45px rgba(0,0,0,.28)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0,#123a5b,#06101c 48%);color:var(--text);font-family:Inter,Arial,sans-serif}button,input,select,textarea,a{font:inherit}.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}.side{position:sticky;top:0;height:100vh;overflow:auto;background:rgba(3,13,24,.98);border-right:1px solid var(--line);padding:21px}.brand{font-size:25px;font-weight:950;line-height:1.08}.brand small{display:block;color:#4ab0ff;font-size:11px;letter-spacing:1.6px;margin-top:7px}.offer{margin:18px 0;padding:15px;border-radius:16px;background:linear-gradient(135deg,#116b3b,#0b8749);box-shadow:var(--shadow)}.offer strong{font-size:19px}.offer small{display:block;margin-top:5px;line-height:1.45}.nav{display:grid;gap:8px}.nav button{width:100%;border:1px solid transparent;border-radius:11px;padding:12px 13px;text-align:left;background:transparent;color:#dcecff;font-weight:800;cursor:pointer}.nav button:hover,.nav button.active{background:linear-gradient(135deg,#135bb2,#1685e9);border-color:#5eb6ff}.contact{margin-top:18px;padding:12px;border:1px solid var(--line);border-radius:12px;color:var(--muted);font-size:13px}.contact a{color:#fff;font-weight:800}.main{padding:24px;max-width:1320px;width:100%}.top{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:17px}.top h1{margin:0;font-size:29px}.top p{margin:5px 0 0;color:var(--muted)}.top .primary{white-space:nowrap}.btn{border:1px solid var(--line);border-radius:10px;padding:11px 15px;background:#132942;color:white;font-weight:850;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn:hover{filter:brightness(1.12)}.btn.primary{background:var(--green);color:#052512;border-color:#73eb96}.btn.blue{background:var(--blue);color:#031522;border-color:#71c0ff}.btn.ghost{background:#0b1929}.page{display:none}.page.active{display:block}.card{background:rgba(11,25,41,.95);border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:var(--shadow)}.read-hero{background:linear-gradient(135deg,#0d6f39,#145e32);border-color:#3add78;padding:22px 26px;margin-bottom:16px}.read-hero h2{font-size:36px;margin:7px 0 8px}.read-hero p{font-size:17px;line-height:1.5;max-width:850px}.hero-action{font-size:16px;padding:11px 18px;margin-top:5px}.secondary-hero{margin-top:0}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}.hero h2{font-size:34px;margin:8px 0 10px}.eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:#173652;color:#bfe4ff;font-size:12px;font-weight:900}.muted{color:var(--muted);line-height:1.55}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:17px}.flow button{border:1px solid var(--line);border-radius:12px;background:#0d1d30;color:#e6f3ff;padding:13px 8px;cursor:pointer;font-weight:800}.flow button:hover{border-color:#60b6ff;background:#133451}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{padding:15px;border:1px solid var(--line);border-radius:13px;background:#0e2034}.stat strong{display:block;font-size:26px}.section{margin-top:16px}.section h2{margin:0 0 13px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{color:#cfe1f2;font-size:13px;font-weight:800}.field input,.field select,.field textarea{width:100%;background:#071523;border:1px solid var(--line);color:white;border-radius:10px;padding:12px}.field textarea{min-height:105px;resize:vertical}.treatment-info{margin-top:12px;border-left:4px solid var(--blue);background:#0d243b;padding:13px;border-radius:10px}.upload{border:2px dashed #3c6589;border-radius:14px;padding:19px;text-align:center;background:#081827}.upload input{display:none}.preview{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.preview img{width:100%;height:120px;object-fit:cover;border-radius:10px;border:1px solid var(--line);cursor:pointer}.jobs{display:grid;gap:10px}.job{display:grid;grid-template-columns:66px 1fr auto;gap:13px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px;background:#0b1c2f;cursor:pointer}.job:hover{border-color:#4eaaff;transform:translateY(-1px)}.job img{width:66px;height:66px;border-radius:50%;object-fit:cover}.badge{padding:6px 9px;border-radius:999px;font-size:12px;font-weight:900}.planned{background:#473811;color:#ffe18d}.ongoing{background:#113b5c;color:#9bd7ff}.done{background:#123b29;color:#8ff0ae}.horse-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.horse-select{display:flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:#0d2033;color:white;cursor:pointer;font-weight:800}.horse-select.active{background:#166bc8;border-color:#71beff}.horse-select img{width:38px;height:38px;border-radius:50%;object-fit:cover}.horse-card{display:grid;grid-template-columns:140px 1fr 1fr;gap:18px;align-items:center}.horse-card>img{width:130px;height:130px;border-radius:18px;object-fit:cover}.photo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.photo{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#081827;cursor:pointer}.photo:hover{border-color:#5cb5ff;transform:translateY(-2px)}.photo img{width:100%;aspect-ratio:1.35/1;object-fit:cover;display:block}.photo p{margin:0;padding:9px;font-size:13px}.check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.check{border:1px solid var(--line);border-radius:12px;padding:14px;background:#0c1e31;cursor:pointer}.check.selected{border-color:#58df80;background:#103423}.check input{margin-right:7px}.money{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.money .card strong{display:block;font-size:29px;margin:8px 0}.bar{height:13px;background:#091623;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:7px 0}.bar span{display:block;height:100%;background:linear-gradient(90deg,#168cff,#35d36b)}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px;border-bottom:1px solid var(--line);text-align:left}.modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.88);z-index:99;padding:30px}.modal.show{display:grid}.modal img{max-width:92vw;max-height:85vh;border-radius:14px}.modal button{position:absolute;right:25px;top:18px;border:0;border-radius:50%;width:42px;height:42px;font-size:25px;cursor:pointer}.toast{display:none;position:fixed;right:22px;bottom:22px;padding:13px 18px;border-radius:11px;background:#123d29;border:1px solid #4ae076;z-index:100}.sales{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.sales .card{box-shadow:none}.sales h3{margin:0 0 7px}@media(max-width:950px){.app{grid-template-columns:1fr}.side{position:relative;height:auto}.nav{grid-template-columns:repeat(2,1fr)}.hero,.horse-card{grid-template-columns:1fr}.flow,.money,.sales{grid-template-columns:repeat(2,1fr)}.photo-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.main{padding:14px}.top{align-items:flex-start;flex-direction:column}.form-grid,.check-grid,.money,.sales,.flow{grid-template-columns:1fr}.photo-grid,.preview{grid-template-columns:repeat(2,1fr)}.job{grid-template-columns:52px 1fr}.job img{width:52px;height:52px}.job .badge{grid-column:2}.nav{grid-template-columns:1fr}}
+
+/* Mobile V4: active work area gets priority, while every original image remains available. */
+.mobile-build-badge{position:fixed;right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));z-index:120;padding:6px 9px;border:1px solid #71c0ff;border-radius:999px;background:#06101ce8;color:#bfe4ff;font-size:11px;font-weight:900;box-shadow:0 4px 18px #0008;pointer-events:none}
+.page.active{content-visibility:auto;contain-intrinsic-size:800px}
+img{max-width:100%;height:auto}
+.table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:1180px){
+ body,.force-mobile{overflow-x:hidden}
+ .app,.force-mobile .app{display:block;min-height:100dvh}
+ .side,.force-mobile .side{position:sticky;top:0;z-index:50;height:auto;max-height:none;overflow:visible;padding:max(10px,env(safe-area-inset-top)) 10px 8px;background:#03101bf2;border-right:0;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+ .brand,.force-mobile .brand{font-size:18px;display:flex;align-items:center;gap:7px;white-space:nowrap}
+ .brand small,.force-mobile .brand small{display:inline;margin:0;font-size:9px}
+ .offer,.contact,.force-mobile .offer,.force-mobile .contact{display:none}
+ .nav,.force-mobile .nav{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding:8px 0 2px;scrollbar-width:none}
+ .nav::-webkit-scrollbar{display:none}
+ .nav button,.force-mobile .nav button{flex:0 0 auto;width:auto;min-height:44px;padding:10px 13px;border-color:var(--line);background:#0b1929;white-space:nowrap;scroll-snap-align:start}
+ .nav button.active,.force-mobile .nav button.active{order:-1;background:linear-gradient(135deg,#0d7b40,#16a85a);border-color:#73eb96;color:#fff}
+ .main,.force-mobile .main{max-width:none;padding:14px 12px calc(24px + env(safe-area-inset-bottom))}
+ .top,.force-mobile .top{position:sticky;top:104px;z-index:35;margin:-2px -12px 12px;padding:10px 12px;background:#06101cf2;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+ .top h1,.force-mobile .top h1{font-size:23px}
+ .top p,.force-mobile .top p{font-size:13px;line-height:1.35}
+ .hero,.horse-card,.force-mobile .hero,.force-mobile .horse-card{grid-template-columns:1fr}
+ .flow,.money,.sales,.force-mobile .flow,.force-mobile .money,.force-mobile .sales{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .photo-grid,.force-mobile .photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .form-grid,.force-mobile .form-grid{grid-template-columns:1fr}
+ .field.full,.force-mobile .field.full{grid-column:auto}
+ .card,.force-mobile .card{padding:15px;border-radius:14px}
+ .read-hero h2,.force-mobile .read-hero h2{font-size:29px}
+ .job,.force-mobile .job{grid-template-columns:56px minmax(0,1fr);align-items:start}
+ .job img,.force-mobile .job img{width:56px;height:56px}
+ .job .badge,.force-mobile .job .badge{grid-column:2;justify-self:start}
+ .horse-card>img,.force-mobile .horse-card>img{width:100%;height:min(52vw,260px)}
+ .table,.force-mobile .table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+ .btn,.force-mobile .btn{min-height:44px}
+ input,select,textarea,.force-mobile input,.force-mobile select,.force-mobile textarea{font-size:16px}
+}
+@media(max-width:640px){
+ .flow,.money,.sales,.check-grid,.force-mobile .flow,.force-mobile .money,.force-mobile .sales,.force-mobile .check-grid{grid-template-columns:1fr}
+ .photo-grid,.preview,.force-mobile .photo-grid,.force-mobile .preview{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .top,.force-mobile .top{top:102px}
+ .top p,.force-mobile .top p{display:none}
+ .read-hero,.force-mobile .read-hero{padding:18px}
+ .read-hero h2,.force-mobile .read-hero h2{font-size:25px}
+ .horse-tabs,.force-mobile .horse-tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+ .horse-select,.force-mobile .horse-select{flex:0 0 auto}
+}
+
+
+.modal .modal-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:64px;border-radius:14px;background:rgba(6,16,28,.86);color:#fff;border:1px solid #5aaeff;font-size:30px;display:none;place-items:center;cursor:pointer;z-index:2}
+.modal.show .modal-nav{display:grid}.modal-prev{left:12px}.modal-next{right:12px}.modal-counter{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);padding:7px 12px;border-radius:999px;background:rgba(6,16,28,.88);border:1px solid var(--line);font-weight:800}
+@media(max-width:600px){.modal{padding:10px}.modal img{max-width:100%;max-height:78vh}.modal .modal-nav{width:44px;height:58px}.modal-prev{left:6px}.modal-next{right:6px}}
+
+.demo-actions{margin-top:22px;display:grid;gap:14px}.demo-callout{border:1px solid #3f6f96;border-radius:17px;padding:20px;background:linear-gradient(135deg,#0d243b,#102f49);box-shadow:var(--shadow)}.demo-callout h2{margin:0 0 8px}.demo-callout p{margin:0 0 14px;color:#c5d8e8;line-height:1.55}.demo-note{display:block;margin-top:10px;color:#f7d889;font-size:13px;font-weight:750}.invite-debug{display:none;margin-top:12px;padding:12px;border:1px solid #47749a;border-radius:10px;background:#06121f;color:#d9ecff;font:12px/1.5 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:280px;overflow:auto}.invite-debug.show{display:block}.invite-footer{border-top:1px solid var(--line);padding:20px 0 8px;text-align:center}.invite-footer h2{margin:0 0 8px}.invite-footer p{margin:0 auto 14px;max-width:700px;color:var(--muted);line-height:1.55}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XJTG20PDR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2XJTG20PDR');
+</script>
+
+</head>
+<body><div class="mobile-build-badge" aria-hidden="true">Hovdemo Mobil V6</div>
+<div class="app">
+<aside class="side">
+ <div class="brand">🐴 Rett i Lomma<small>HOVSLAGER</small></div>
+ <div class="offer"><strong>Første måned gratis</strong><small>Deretter 500 kr per måned. Laget for deg som jobber alene.</small></div>
+ <nav class="nav" id="nav"></nav>
+ <div class="contact">Spørsmål eller tilgang?<br><a href="mailto:salg@rettilomma.com">salg@rettilomma.com</a></div>
+</aside>
+<main class="main">
+ <header class="top"><div><h1 id="pageTitle">Les inn jobb</h1><p id="pageSub">Den raskeste veien fra kunde til ferdig registrert hovslagerjobb.</p></div></header>
+ <div id="pages"></div>
+ <section class="demo-actions" aria-label="Testversjon og invitasjon">
+  <div class="demo-callout">
+   <h2>Be om testversjon</h2>
+   <p>Fyll inn navn og e-post. Du får en e-post med lenke for å opprette passord og logge inn i Rett i Lomma.</p>
+   <form id="trialInviteForm" onsubmit="createInvitation(event)" style="display:grid;gap:12px;max-width:520px;margin-top:16px">
+    <label>Navn eller firmanavn<input id="trialInviteName" name="name" required autocomplete="organization" style="display:block;width:100%;box-sizing:border-box;margin-top:6px;padding:12px;border-radius:9px;border:1px solid #47749a;background:#071725;color:#eaf4ff"></label>
+    <label>E-post<input id="trialInviteEmail" name="email" type="email" required autocomplete="email" style="display:block;width:100%;box-sizing:border-box;margin-top:6px;padding:12px;border-radius:9px;border:1px solid #47749a;background:#071725;color:#eaf4ff"></label>
+    <button class="btn primary" id="createInviteBtn" type="submit">Send invitasjon</button>
+   </form>
+   <div id="inviteResult" class="demo-note" aria-live="polite">Første måned er gratis. Dersom betalingsinformasjon ikke registreres innen 30 dager, sendes et varsel og kontoen fryses.</div>
+   
+  </div>
+  
+ </section>
+</main>
+</div>
+<div class="modal" id="modal" onclick="modalBackdrop(event)"><button aria-label="Lukk" onclick="closeModal()">×</button><button class="modal-nav modal-prev" aria-label="Forrige bilde" onclick="event.stopPropagation();stepImage(-1)">‹</button><img id="modalImg" alt="Forstørret bilde"><button class="modal-nav modal-next" aria-label="Neste bilde" onclick="event.stopPropagation();stepImage(1)">›</button><div class="modal-counter" id="modalCounter"></div></div><div class="toast" id="toast"></div>
+<script>
+const BUILD='hovdemo-mobile-v6-20260722-debug';
+// Remove stale app caches and old service workers left by previous deployments.
+(async()=>{
+  try{
+    if('serviceWorker' in navigator){
+      const regs=await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(r=>r.unregister()));
+    }
+    if('caches' in window){
+      const keys=await caches.keys();
+      await Promise.all(keys.map(k=>caches.delete(k)));
+    }
+    localStorage.setItem('hovdemo-build',BUILD);
+  }catch(e){console.warn('Cache cleanup skipped',e)}
+})();
+const A='assets/images-v5/';
+const horses={
+ Bella:{owner:'Ingrid Haugen',stable:'Stall Solbakken',breed:'Norsk varmblod',age:'9 år',photo:'bella.jpg',problem:'Hovsprekk framhov venstre',treatment:'Beskjæring, ny sko og sålebeskyttelse',next:'10. august 2026',images:['bella_fv_uten.jpg','hovsprekk.jpg','beskjaering.jpg','bella_fv_sko.jpg','ny_sko.jpg','saalebeskyttelse.jpg']},
+ Storm:{owner:'Morten Dahl',stable:'Dahl Gård',breed:'Fjordhest',age:'12 år',photo:'storm.jpg',problem:'Sår stråle bakhov høyre',treatment:'Beskjæring, rens og oppfølging',next:'18. august 2026',images:['storm_1.jpg','sur_straale.jpg','storm_2.jpg','beskjaering.jpg','storm_4.jpg','oppfolging.jpg']}
+};
+let selectedHorse=localStorage.getItem('horse')||'Bella';
+const menu=[['lesinn','Les inn jobb'],['jobber','Jobboversikt'],['hester','Hester'],['bilder','Bilder'],['hovkontroll','Hovkontroll'],['behandling','Behandling'],['okonomi','Økonomioversikt'],['rapport','Rapporter']];
+const titles={lesinn:['Les inn jobb','Den raskeste veien fra kunde til ferdig registrert hovslagerjobb.'],jobber:['Jobboversikt','Planlagte, pågående og ferdige jobber på ett sted.'],hester:['Hester','Historikk, bilder og behandling på riktig hest.'],bilder:['Bilder','Dokumenter før, under og etter behandlingen.'],hovkontroll:['Hovkontroll','Registrer funn på riktig hov.'],behandling:['Behandling','Velg behandling fra rullegardin og skriv hva som er utført.'],okonomi:['Økonomioversikt','Se omsetning, fakturering og utestående.'],rapport:['Rapporter','Samle bilder, behandling og notater i én rapport.']};
+const nav=document.getElementById('nav'),pages=document.getElementById('pages');
+menu.forEach(([id,label])=>{const b=document.createElement('button');b.textContent=label;b.dataset.id=id;b.onclick=()=>go(id);nav.appendChild(b)});
+function horseButtons(){return `<div class="horse-tabs">${Object.entries(horses).map(([n,h])=>`<button class="horse-select ${n===selectedHorse?'active':''}" onclick="selectHorse('${n}')"><img src="${A+h.photo}">${n}</button>`).join('')}</div>`}
+function imageCards(list){const encoded=encodeURIComponent(JSON.stringify(list));return `<div class="photo-grid">${list.map((f,i)=>`<div class="photo" onclick="openGallery(decodeURIComponent('${encoded}'),${i})"><img src="${A+f}" alt="Hovbilde" loading="${i<2?'eager':'lazy'}" decoding="async"><p>${['Før behandling','Registrert funn','Under behandling','Etter behandling','Dokumentasjon','Oppfølging'][i%6]}</p></div>`).join('')}</div>`}
+function pageLesinn(){return `<section class="card read-hero"><span class="eyebrow">Hovedfunksjon</span><h2>📥 Les inn jobb</h2><p>Velg kunde, hest og behandling. Legg til bilder og notater, og få alt lagret automatisk på riktig hest. Har du prislister, kundelister og hestelister digitalt, kan de lastes opp.</p><button class="btn primary hero-action" onclick="focusField('customer')">Start innlesing</button></section><section class="hero secondary-hero"><div class="card"><span class="eyebrow">Rask registrering</span><h2>Neste jobb</h2><p class="muted">Fem enkle steg fra kunde til opprettet jobb.</p><div class="flow"><button onclick="focusField('customer')">1. Kunde</button><button onclick="focusField('horse')">2. Hest</button><button onclick="focusField('treatment')">3. Behandling</button><button onclick="document.getElementById('camera').click()">4. Bilder</button><button onclick="startJob()">5. Start</button></div></div><div class="card"><span class="eyebrow">Første måned gratis</span><h2 style="font-size:28px">Prøv uten kostnad</h2><p class="muted">Få jobboversikt, bilder, behandlinger og økonomi samlet. Deretter 500 kr per måned.</p><a class="btn blue" href="mailto:salg@rettilomma.com?subject=Jeg%20vil%20teste%20Hovslager">Kom i gang</a></div></section>
+<section class="card section"><h2>Jobbdetaljer</h2><div class="form-grid"><div class="field"><label>Kunde</label><select id="customer"><option>Stall Solbakken – Ingrid Haugen</option><option>Dahl Gård – Morten Dahl</option><option>Ny kunde …</option></select></div><div class="field"><label>Hest</label><select id="horse"><option>Bella</option><option>Storm</option><option>Ny hest …</option></select></div><div class="field"><label>Dato og tid</label><input type="datetime-local" value="2026-07-13T09:00"></div><div class="field"><label>Status</label><select><option>Planlagt</option><option>Pågår</option><option>Ferdig</option></select></div><div class="field full"><label>Behandling</label><select id="treatment" onchange="treatmentChanged(this.value)"><option value="">Velg behandling …</option><option>Hovkontroll</option><option>Beskjæring</option><option>Skoing</option><option>Omskoing</option><option>Barfot</option><option>Limsko</option><option>Sålebeskyttelse</option><option>Brodder</option><option>Hovsprekk</option><option>Sur stråle</option><option>White line</option><option>Byll</option><option>Annet</option></select><div id="treatmentInfo" class="treatment-info">Velg behandling for å vise relevante felt.</div></div><div class="field"><label>Hov</label><select><option>Alle fire</option><option>Fram venstre</option><option>Fram høyre</option><option>Bak venstre</option><option>Bak høyre</option></select></div><div class="field"><label>Neste besøk</label><input type="date" value="2026-08-10"></div><div class="field full"><label>Notat</label><textarea placeholder="Skriv arbeidsbeskrivelse eller observasjoner …">Kontroller hovbalanse og dokumenter før og etter behandling.</textarea></div><div class="field full"><label>Bilder</label><div class="upload"><b>📷 Ta bilde eller velg bilder</b><p class="muted">Bildene knyttes automatisk til valgt hest og jobb.</p><button class="btn blue" type="button" onclick="document.getElementById('camera').click()">Ta / velg bilder</button><input id="camera" type="file" accept="image/*" multiple onchange="previewFiles(this.files)"><div id="preview" class="preview"></div></div></div></div><p><button class="btn primary" onclick="startJob()">Start jobb</button></p></section>
+<section class="sales"><div class="card"><h3>📋 Jobboversikt</h3><p class="muted">Se hva som er planlagt, pågår og er ferdig.</p></div><div class="card"><h3>📷 Bilder på riktig hest</h3><p class="muted">Før-, underveis- og etterbilder samlet automatisk.</p></div><div class="card"><h3>🐴 Full historikk</h3><p class="muted">Finn tidligere behandlinger på sekunder.</p></div><div class="card"><h3>💰 Økonomikontroll</h3><p class="muted">Se omsetning og hva som ikke er fakturert.</p></div></section>`}
+function pageJobs(){return `<section class="card"><h2>Dagens jobber</h2><div class="jobs"><div class="job" onclick="selectHorse('Bella');go('behandling')"><img src="${A}bella.jpg"><div><b>Bella – Hovkontroll og skoing</b><p class="muted">09:00 · Stall Solbakken · 6 bilder</p></div><span class="badge ongoing">Pågår</span></div><div class="job" onclick="selectHorse('Storm');go('behandling')"><img src="${A}storm.jpg"><div><b>Storm – Beskjæring og oppfølging</b><p class="muted">11:30 · Dahl Gård · 4 bilder</p></div><span class="badge planned">Planlagt</span></div><div class="job" onclick="selectHorse('Bella');go('rapport')"><img src="${A}bella.jpg"><div><b>Bella – Etterkontroll</b><p class="muted">Forrige måned · Rapport sendt</p></div><span class="badge done">Ferdig</span></div></div></section>`}
+function pageHorses(){const h=horses[selectedHorse];return `${horseButtons()}<section class="card horse-card"><img src="${A+h.photo}"><div><h2>${selectedHorse}</h2><p>${h.breed} · ${h.age}</p><p class="muted">Eier: ${h.owner}<br>${h.stable}<br>Neste besøk: ${h.next}</p></div><div><h3>Aktuell hovstatus</h3><p style="color:var(--yellow)">${h.problem}</p><p>${h.treatment}</p><button class="btn blue" onclick="go('behandling')">Åpne behandling</button></div></section><section class="card section"><h2>Siste bilder</h2>${imageCards(h.images)}</section>`}
+function pageImages(){const h=horses[selectedHorse];return `${horseButtons()}<section class="card"><h2>Alle bilder på ${selectedHorse}</h2><p class="muted">Klikk på et bilde for stor visning.</p>${imageCards(h.images)}</section>`}
+function pageControl(){const h=horses[selectedHorse];return `${horseButtons()}<section class="card"><h2>Hovkontroll – ${selectedHorse}</h2><div class="check-grid">${['Fram venstre','Fram høyre','Bak venstre','Bak høyre','Hovbalanse','Bevegelse'].map((x,i)=>`<label class="check" onclick="this.classList.toggle('selected')"><input type="checkbox" ${i===0?'checked':''}>${x}<p class="muted">${i===0?h.problem:'Ingen nye funn'}</p></label>`).join('')}</div><p><button class="btn primary" onclick="showToast('Hovkontrollen er lagret')">Lagre hovkontroll</button> <button class="btn blue" onclick="go('behandling')">Gå til behandling</button></p></section>`}
+function pageTreatment(){const h=horses[selectedHorse];return `${horseButtons()}<section class="card"><h2>Behandling – ${selectedHorse}</h2><div class="form-grid"><div class="field full"><label>Behandlingsvalg</label><select onchange="treatmentChangedPage(this.value)"><option>${h.treatment}</option><option>Hovkontroll</option><option>Beskjæring</option><option>Skoing</option><option>Omskoing</option><option>Barfot</option><option>Limsko</option><option>Sålebeskyttelse</option><option>Brodder</option><option>Hovsprekk</option><option>Sur stråle</option><option>White line</option><option>Byll</option><option>Annet</option></select><div id="pageTreatmentInfo" class="treatment-info">Valgt: ${h.treatment}</div></div><div class="field"><label>Hov</label><select><option>Fram venstre</option><option>Fram høyre</option><option>Bak venstre</option><option>Bak høyre</option><option>Alle fire</option></select></div><div class="field"><label>Pris</label><input value="1 850 kr"></div><div class="field full"><label>Utført arbeid</label><textarea>${h.treatment}. Kontrollert hovbalanse og dokumentert med bilder.</textarea></div><div class="field full"><label>Ta bilde</label><button class="btn blue" onclick="document.getElementById('treatPhoto').click()">📷 Ta / velg bilde</button><input id="treatPhoto" type="file" accept="image/*" style="display:none" onchange="showToast('Bildet er lagret på ${selectedHorse}')"></div></div><p><button class="btn primary" onclick="showToast('Behandlingen er lagret')">Lagre behandling</button> <button class="btn ghost" onclick="go('rapport')">Avslutt og åpne rapport</button></p></section><section class="card section"><h2>Behandlingsbilder</h2>${imageCards(h.images)}</section>`}
+function pageEconomy(){return `<section class="money"><div class="card"><span class="muted">Omsetning denne måneden</span><strong>48 750 kr</strong><span class="ok">+12 % fra juni</span></div><div class="card"><span class="muted">Utførte jobber</span><strong>34</strong><span>Gjennomsnitt 1 434 kr</span></div><div class="card"><span class="muted">Ikke fakturert</span><strong>6 500 kr</strong><button class="btn blue" onclick="showToast('Fakturagrunnlag åpnet')">Se jobber</button></div><div class="card"><span class="muted">Utestående</span><strong>3 200 kr</strong><span class="warn">2 fakturaer</span></div></section><section class="card section"><h2>Omsetning siste seks måneder</h2>${[['Februar',58],['Mars',66],['April',73],['Mai',62],['Juni',79],['Juli',88]].map(x=>`<div style="display:grid;grid-template-columns:85px 1fr 85px;gap:10px;align-items:center;margin:10px 0"><span>${x[0]}</span><div class="bar"><span style="width:${x[1]}%"></span></div><b>${Math.round(x[1]*550)} kr</b></div>`).join('')}</section><section class="card section"><h2>Siste jobber</h2><table class="table"><tr><th>Hest</th><th>Behandling</th><th>Beløp</th><th>Status</th></tr><tr><td>Bella</td><td>Skoing og hovsprekk</td><td>1 850 kr</td><td class="ok">Fakturert</td></tr><tr><td>Storm</td><td>Beskjæring</td><td>950 kr</td><td class="warn">Ikke fakturert</td></tr></table></section>`}
+function pageReport(){const h=horses[selectedHorse];return `${horseButtons()}<section class="card"><h2>Jobbrapport – ${selectedHorse}</h2><table class="table"><tr><th>Eier</th><td>${h.owner}</td></tr><tr><th>Stall</th><td>${h.stable}</td></tr><tr><th>Funn</th><td>${h.problem}</td></tr><tr><th>Behandling</th><td>${h.treatment}</td></tr><tr><th>Neste besøk</th><td>${h.next}</td></tr><tr><th>Bilder</th><td>${h.images.length} bilder</td></tr></table><p><a class="btn blue" href="mailto:salg@rettilomma.com?subject=Hovrapport%20${selectedHorse}">Send rapport på e-post</a> <button class="btn primary" onclick="showToast('Rapporten er markert som ferdig')">Marker ferdig</button></p></section><section class="card section">${imageCards(h.images.slice(0,4))}</section>`}
+const renderers={lesinn:pageLesinn,jobber:pageJobs,hester:pageHorses,bilder:pageImages,hovkontroll:pageControl,behandling:pageTreatment,okonomi:pageEconomy,rapport:pageReport};
+function go(id){document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.id===id));document.getElementById('pageTitle').textContent=titles[id][0];document.getElementById('pageSub').textContent=titles[id][1];pages.innerHTML=`<div class="page active">${renderers[id]()}</div>`;localStorage.setItem('page',id);window.scrollTo({top:0,behavior:'smooth'})}
+function selectHorse(n){selectedHorse=n;localStorage.setItem('horse',n);const active=document.querySelector('.nav button.active')?.dataset.id;if(active&&['hester','bilder','hovkontroll','behandling','rapport'].includes(active))go(active)}
+function focusField(id){document.getElementById(id)?.focus()}
+function treatmentChanged(v){const e=document.getElementById('treatmentInfo');if(!e)return;e.innerHTML=v?`Valgt behandling: <b>${v}</b>. Du kan nå velge hov, skrive notat og legge til bilder.`:'Velg behandling for å vise relevante felt.'}
+function treatmentChangedPage(v){document.getElementById('pageTreatmentInfo').innerHTML=`Valgt behandling: <b>${v}</b>. Bildene og notatet lagres på ${selectedHorse}.`}
+function previewFiles(files){const p=document.getElementById('preview');p.innerHTML='';[...files].forEach(f=>{const im=document.createElement('img');im.src=URL.createObjectURL(f);im.onclick=()=>openModal(im.src);p.appendChild(im)});showToast(`${files.length} bilde(r) klare`)}
+function startJob(){const hs=document.getElementById('horse');if(hs&&horses[hs.value])selectHorse(hs.value);showToast('Jobben er opprettet og klar');setTimeout(()=>go('behandling'),550)}
+let galleryImages=[],galleryIndex=0;
+const imageCache=new Map();
+function cacheImage(src){if(imageCache.has(src))return imageCache.get(src);const promise=new Promise(resolve=>{const im=new Image();im.decoding='async';im.onload=()=>{im.decode?.().catch(()=>{}).finally(resolve)};im.onerror=resolve;im.src=src});imageCache.set(src,promise);return promise}
+function preloadAround(){if(!galleryImages.length)return;[-2,-1,1,2].forEach(offset=>cacheImage(A+galleryImages[(galleryIndex+offset+galleryImages.length)%galleryImages.length]))}
+function openGallery(json,index){galleryImages=JSON.parse(json);galleryIndex=index||0;showGalleryImage();document.getElementById('modal').classList.add('show');preloadAround()}
+function showGalleryImage(){const src=A+galleryImages[galleryIndex];const img=document.getElementById('modalImg');img.src=src;document.getElementById('modalCounter').textContent=`${galleryIndex+1} / ${galleryImages.length}`;cacheImage(src);preloadAround()}
+function stepImage(direction){if(!galleryImages.length)return;galleryIndex=(galleryIndex+direction+galleryImages.length)%galleryImages.length;showGalleryImage()}
+function openModal(src){galleryImages=[src.startsWith(A)?src.slice(A.length):src];galleryIndex=0;showGalleryImage();document.getElementById('modal').classList.add('show')}
+function modalBackdrop(event){if(event.target===event.currentTarget)closeModal()}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+document.addEventListener('keydown',event=>{if(!document.getElementById('modal').classList.contains('show'))return;if(event.key==='ArrowRight')stepImage(1);if(event.key==='ArrowLeft')stepImage(-1);if(event.key==='Escape')closeModal()});
+function showToast(t){const e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2200)}
+
+// Google Analytics event tracking.
+function trackEvent(name,params={}){
+  if(typeof window.gtag!=='function') return;
+  window.gtag('event',name,{...params,app_name:'Hovslager demo'});
+}
+function currentDemoPage(){return document.querySelector('.nav button.active')?.dataset.id||'lesinn'}
+document.addEventListener('click',event=>{
+  const el=event.target.closest('a,button,.job,.photo,.horse-select');
+  if(!el) return;
+  const label=(el.textContent||el.getAttribute('aria-label')||'ukjent').trim().replace(/\s+/g,' ').slice(0,100);
+  const href=el.getAttribute('href')||'';
+  if(href.startsWith('mailto:')){
+    trackEvent('contact_click',{contact_method:'email',link_text:label,page_name:currentDemoPage()});
+  }else if(el.matches('.hero-action')){
+    trackEvent('start_reading_click',{button_text:label,page_name:currentDemoPage()});
+  }else if(label.includes('Kom i gang')){
+    trackEvent('trial_interest',{button_text:label,page_name:currentDemoPage()});
+  }else if(label.includes('Start jobb')||label==='5. Start'){
+    trackEvent('demo_job_started',{button_text:label,page_name:currentDemoPage()});
+  }else if(el.matches('.nav button')){
+    trackEvent('navigation_click',{destination:el.dataset.id||label});
+  }else if(el.matches('.photo')){
+    trackEvent('demo_image_open',{page_name:currentDemoPage()});
+  }
+});
+document.addEventListener('change',event=>{
+  if(event.target.matches('input[type=file]')){
+    trackEvent('demo_file_selected',{field_id:event.target.id||'file',file_count:event.target.files?.length||0,page_name:currentDemoPage()});
+  }
+});
+
+// Force the mobile layout on phones/tablets even when browser viewport reporting is unusual.
+const mobileQuery=window.matchMedia('(max-width: 1180px)');
+function applyMobileMode(){
+  const touch=window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints>0;
+  const narrow=Math.min(window.innerWidth||9999,screen.width||9999)<=1180;
+  document.documentElement.classList.toggle('force-mobile',mobileQuery.matches || (touch&&narrow));
+}
+applyMobileMode();
+mobileQuery.addEventListener?.('change',applyMobileMode);
+window.addEventListener('orientationchange',()=>setTimeout(applyMobileMode,100),{passive:true});
+window.addEventListener('resize',applyMobileMode,{passive:true});
+
+// Preserve all images, but decode and fetch off-screen images efficiently.
+function optimizeImages(root=document){
+  root.querySelectorAll('img').forEach((img,index)=>{
+    img.decoding='async';
+    if(!img.hasAttribute('loading')) img.loading=index===0?'eager':'lazy';
+    if(index===0) img.fetchPriority='high';
+  });
+}
+const imageObserver=new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{if(n.nodeType===1) optimizeImages(n)})));
+imageObserver.observe(document.getElementById('pages'),{childList:true,subtree:true});
+
+const originalGo=go;
+go=function(id){originalGo(id);optimizeImages(document.getElementById('pages'));trackEvent('page_view',{page_title:titles[id][0],page_location:location.origin+location.pathname+'#'+id,page_path:location.pathname+'#'+id,demo_page:id});requestAnimationFrame(()=>document.getElementById('nav')?.querySelector('button.active')?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'}));};
+
+function warmImageCache(){const files=[...new Set(Object.values(horses).flatMap(h=>[h.photo,...h.images]))];let i=0;const run=deadline=>{while(i<files.length&&(deadline.timeRemaining()>4||deadline.didTimeout)){cacheImage(A+files[i++])}if(i<files.length)requestIdleCallback(run,{timeout:1500})};if('requestIdleCallback'in window)requestIdleCallback(run,{timeout:1200});else setTimeout(()=>files.forEach(f=>cacheImage(A+f)),400)}
+window.addEventListener('load',warmImageCache,{once:true});
+
+
+async function createInvitation(event){
+  event?.preventDefault();
+  const button=document.getElementById('createInviteBtn');
+  const result=document.getElementById('inviteResult');
+  const debug=document.getElementById('inviteDebug');
+  const navn=document.getElementById('trialInviteName').value.trim();
+  const epost=document.getElementById('trialInviteEmail').value.trim().toLowerCase();
+  if(!navn || !epost){
+    result.textContent='Fyll inn navn og en gyldig e-postadresse.';
+    return;
+  }
+
+  const SUPABASE_URL='https://vsxvuvzljvtxzoashsfw.supabase.co';
+  const SUPABASE_ANON_KEY='sb_publishable_ACS9QRsW7yctJi_bDulrIg_XX6OmU1P';
+  const endpoint=`${SUPABASE_URL}/functions/v1/opprett-hov-kunde`;
+  const redirectTo=new URL('../reset.html', location.href).href;
+  const started=Date.now();
+  const lines=[];
+  const addDebug=(text)=>{
+    const seconds=((Date.now()-started)/1000).toFixed(1);
+    lines.push(`[${seconds}s] ${text}`);
+    debug.textContent=lines.join('\n');
+    debug.classList.add('show');
+    debug.scrollTop=debug.scrollHeight;
+  };
+
+  button.disabled=true;
+  button.textContent='Sender...';
+  result.textContent='Kontakter e-posttjenesten...';
+  debug.textContent='';
+  debug.classList.add('show');
+  addDebug('Starter invitasjonstest.');
+  addDebug(`Endepunkt: ${endpoint}`);
+  addDebug(`E-post: ${epost}`);
+  addDebug(`Redirect: ${redirectTo}`);
+
+  const controller=new AbortController();
+  const timeoutMs=90000;
+  const timeoutId=setTimeout(()=>controller.abort(),timeoutMs);
+  const progressId=setInterval(()=>{
+    const seconds=Math.round((Date.now()-started)/1000);
+    result.textContent=`Venter på svar fra e-posttjenesten... ${seconds} sekunder`;
+  },1000);
+
+  try{
+    addDebug('Sender POST-forespørsel...');
+    const response=await fetch(endpoint,{
+      method:'POST',
+      mode:'cors',
+      cache:'no-store',
+      signal:controller.signal,
+      headers:{
+        'Content-Type':'application/json',
+        'apikey':SUPABASE_ANON_KEY,
+        'Authorization':`Bearer ${SUPABASE_ANON_KEY}`
+      },
+      body:JSON.stringify({
+        mode:'opprett',
+        navn,
+        epost,
+        redirect_to:redirectTo
+      })
+    });
+
+    addDebug(`HTTP-status: ${response.status} ${response.statusText || ''}`.trim());
+    addDebug(`Content-Type: ${response.headers.get('content-type') || 'ikke oppgitt'}`);
+    const raw=await response.text();
+    addDebug(`Serversvar: ${raw || '(tomt svar)'}`);
+
+    let data={};
+    try{
+      data=raw ? JSON.parse(raw) : {};
+    }catch(parseError){
+      addDebug(`JSON-feil: ${parseError.message}`);
+      data={error:raw || 'Ugyldig eller tomt svar fra serveren.'};
+    }
+
+    if(!response.ok || data.ok===false){
+      throw new Error(data.error || data.message || `Serveren svarte med ${response.status}.`);
+    }
+
+    result.innerHTML='<strong>E-post er sendt.</strong><br>En invitasjon med lenke for å opprette passord og logge inn er sendt til '+escapeHtml(epost)+'. Sjekk også søppelpost.';
+    addDebug('FERDIG: Serveren bekreftet at invitasjonen ble behandlet.');
+    document.getElementById('trialInviteForm').reset();
+    trackEvent('trial_invitation_sent',{page_name:currentDemoPage()});
+  }catch(error){
+    const timeout=error && error.name==='AbortError';
+    const message=timeout
+      ? `Ingen respons innen ${timeoutMs/1000} sekunder. Forespørselen ble avbrutt i nettleseren.`
+      : (error?.message || String(error));
+    result.innerHTML='<strong>Invitasjonen kunne ikke bekreftes.</strong><br>'+escapeHtml(message);
+    addDebug(`FEILTYPE: ${error?.name || 'Ukjent feil'}`);
+    addDebug(`FEILMELDING: ${message}`);
+    addDebug('Ta et skjermbilde av denne boksen og send det videre.');
+  }finally{
+    clearTimeout(timeoutId);
+    clearInterval(progressId);
+    button.disabled=false;
+    button.textContent='Send invitasjon';
+    addDebug('Testen er avsluttet.');
+  }
+}
+
+localStorage.setItem('page','lesinn');
+go('lesinn');
+</script>
+</body></html>
+
+<style>.debug,#debug,#diagnose,#diagnostics,pre.debug{display:none!important}</style>
