@@ -57,7 +57,8 @@ img{max-width:100%;height:auto}
 .modal.show .modal-nav{display:grid}.modal-prev{left:12px}.modal-next{right:12px}.modal-counter{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);padding:7px 12px;border-radius:999px;background:rgba(6,16,28,.88);border:1px solid var(--line);font-weight:800}
 @media(max-width:600px){.modal{padding:10px}.modal img{max-width:100%;max-height:78vh}.modal .modal-nav{width:44px;height:58px}.modal-prev{left:6px}.modal-next{right:6px}}
 
-.demo-actions{margin-top:22px;display:grid;gap:14px}.demo-callout{border:1px solid #3f6f96;border-radius:17px;padding:20px;background:linear-gradient(135deg,#0d243b,#102f49);box-shadow:var(--shadow)}.demo-callout h2{margin:0 0 8px}.demo-callout p{margin:0 0 14px;color:#c5d8e8;line-height:1.55}.demo-note{display:block;margin-top:10px;color:#f7d889;font-size:13px;font-weight:750}.invite-debug{display:none;margin-top:12px;padding:12px;border:1px solid #47749a;border-radius:10px;background:#06121f;color:#d9ecff;font:12px/1.5 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:280px;overflow:auto}.invite-debug.show{display:block}.invite-footer{border-top:1px solid var(--line);padding:20px 0 8px;text-align:center}.invite-footer h2{margin:0 0 8px}.invite-footer p{margin:0 auto 14px;max-width:700px;color:var(--muted);line-height:1.55}
+.demo-actions{margin-top:22px;display:grid;gap:14px}.demo-callout{border:1px solid #3f6f96;border-radius:17px;padding:20px;background:linear-gradient(135deg,#0d243b,#102f49);box-shadow:var(--shadow)}.demo-callout h2{margin:0 0 8px}.demo-callout p{margin:0 0 14px;color:#c5d8e8;line-height:1.55}.demo-note{display:block;margin-top:10px;color:#f7d889;font-size:13px;font-weight:750}.invite-debug{display:none;margin-top:12px;padding:12px;border:1px solid #47749a;border-radius:10px;background:#06121f;color:#d9ecff;font:12px/1.5 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:280px;overflow:auto}.invite-debug.show{display:none!important}.invite-footer{border-top:1px solid var(--line);padding:20px 0 8px;text-align:center}.invite-footer h2{margin:0 0 8px}.invite-footer p{margin:0 auto 14px;max-width:700px;color:var(--muted);line-height:1.55}
+.language-box{margin:0 0 14px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#0b1929}.language-box label{display:block;margin-bottom:7px;color:#cfe1f2;font-size:12px;font-weight:900}.language-box select{width:100%;padding:9px;border:1px solid #47749a;border-radius:9px;background:#071725;color:#fff;font-weight:800}@media(max-width:1180px){.language-box{position:absolute;right:10px;top:max(8px,env(safe-area-inset-top));z-index:3;width:138px;margin:0;padding:6px}.language-box label{display:none}.language-box select{padding:7px;font-size:12px}.brand{padding-right:148px}}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XJTG20PDR"></script>
@@ -74,6 +75,7 @@ img{max-width:100%;height:auto}
 <aside class="side">
  <div class="brand">🐴 Rett i Lomma<small>HOVSLAGER</small></div>
  <div class="offer"><strong>Første måned gratis</strong><small>Deretter 500 kr per måned. Laget for deg som jobber alene.</small></div>
+ <div class="language-box"><label for="demoLanguage">🌐 Språk / Language</label><select id="demoLanguage" onchange="setDemoLanguage(this.value)"><option value="no">Norsk</option><option value="sv">Svenska</option><option value="en">English</option></select></div>
  <nav class="nav" id="nav"></nav>
  <div class="contact">Spørsmål eller tilgang?<br><a href="mailto:salg@rettilomma.com">salg@rettilomma.com</a></div>
 </aside>
@@ -90,7 +92,7 @@ img{max-width:100%;height:auto}
     <button class="btn primary" id="createInviteBtn" type="submit">Send invitasjon</button>
    </form>
    <div id="inviteResult" class="demo-note" aria-live="polite">Første måned er gratis. Dersom betalingsinformasjon ikke registreres innen 30 dager, sendes et varsel og kontoen fryses.</div>
-   
+   <pre id="inviteDebug" class="invite-debug" aria-live="polite"></pre>
   </div>
   
  </section>
@@ -98,7 +100,7 @@ img{max-width:100%;height:auto}
 </div>
 <div class="modal" id="modal" onclick="modalBackdrop(event)"><button aria-label="Lukk" onclick="closeModal()">×</button><button class="modal-nav modal-prev" aria-label="Forrige bilde" onclick="event.stopPropagation();stepImage(-1)">‹</button><img id="modalImg" alt="Forstørret bilde"><button class="modal-nav modal-next" aria-label="Neste bilde" onclick="event.stopPropagation();stepImage(1)">›</button><div class="modal-counter" id="modalCounter"></div></div><div class="toast" id="toast"></div>
 <script>
-const BUILD='hovdemo-mobile-v6-20260722-debug';
+const BUILD='hovdemo-mobile-v6-multilingual';
 // Remove stale app caches and old service workers left by previous deployments.
 (async()=>{
   try{
@@ -320,9 +322,88 @@ async function createInvitation(event){
   }
 }
 
+
+// Norwegian, Swedish and English demo interface.
+const DEMO_TRANSLATIONS={
+ sv:{
+  'Rett i Lomma – Hovslager':'Rett i Lomma – Hovslagare','HOVSLAGER':'HOVSLAGARE','Hovdemo Mobil V6':'Hovdemo Mobil V6',
+  'Første måned gratis':'Första månaden gratis','Deretter 500 kr per måned. Laget for deg som jobber alene.':'Därefter 500 kr per månad. Skapad för dig som arbetar självständigt.',
+  'Spørsmål eller tilgang?':'Frågor eller åtkomst?','Språk / Language':'Språk / Language',
+  'Les inn jobb':'Registrera jobb','Jobboversikt':'Jobböversikt','Hester':'Hästar','Bilder':'Bilder','Hovkontroll':'Hovkontroll','Behandling':'Behandling','Økonomioversikt':'Ekonomiöversikt','Rapporter':'Rapporter',
+  'Den raskeste veien fra kunde til ferdig registrert hovslagerjobb.':'Den snabbaste vägen från kund till ett färdigregistrerat hovslagarjobb.','Planlagte, pågående og ferdige jobber på ett sted.':'Planerade, pågående och slutförda jobb på ett ställe.','Historikk, bilder og behandling på riktig hest.':'Historik, bilder och behandling på rätt häst.','Dokumenter før, under og etter behandlingen.':'Dokumentera före, under och efter behandlingen.','Registrer funn på riktig hov.':'Registrera fynd på rätt hov.','Velg behandling fra rullegardin og skriv hva som er utført.':'Välj behandling i listan och skriv vad som har utförts.','Se omsetning, fakturering og utestående.':'Se omsättning, fakturering och utestående.','Samle bilder, behandling og notater i én rapport.':'Samla bilder, behandling och anteckningar i en rapport.',
+  'Hovedfunksjon':'Huvudfunktion','Start innlesing':'Starta registrering','Rask registrering':'Snabb registrering','Neste jobb':'Nästa jobb','Fem enkle steg fra kunde til opprettet jobb.':'Fem enkla steg från kund till skapat jobb.','Kunde':'Kund','Hest':'Häst','Dato og tid':'Datum och tid','Status':'Status','Jobbdetaljer':'Jobbdetaljer','Notat':'Anteckning','Neste besøk':'Nästa besök','Pris':'Pris','Utført arbeid':'Utfört arbete','Behandlingsvalg':'Behandlingsval','Ta bilde':'Ta bild','Ta / velg bilde':'Ta / välj bild','Ta / velg bilder':'Ta / välj bilder','Ta bilde eller velg bilder':'Ta en bild eller välj bilder','Start jobb':'Starta jobb','Kom i gang':'Kom igång','Prøv uten kostnad':'Prova utan kostnad','Få jobboversikt, bilder, behandlinger og økonomi samlet. Deretter 500 kr per måned.':'Samla jobböversikt, bilder, behandlingar och ekonomi. Därefter 500 kr per månad.',
+  'Velg kunde, hest og behandling. Legg til bilder og notater, og få alt lagret automatisk på riktig hest. Har du prislister, kundelister og hestelister digitalt, kan de lastes opp.':'Välj kund, häst och behandling. Lägg till bilder och anteckningar så sparas allt automatiskt på rätt häst. Digitala pris-, kund- och hästlistor kan laddas upp.',
+  'Ny kunde …':'Ny kund …','Ny hest …':'Ny häst …','Planlagt':'Planerad','Pågår':'Pågår','Ferdig':'Klar','Velg behandling …':'Välj behandling …','Beskjæring':'Verkning','Skoing':'Skoning','Omskoing':'Omskoning','Barfot':'Barfota','Limsko':'Limskor','Sålebeskyttelse':'Sulkeskydd','Brodder':'Broddar','Hovsprekk':'Hovspricka','Sur stråle':'Strålröta','Byll':'Hovböld','Annet':'Annat','Alle fire':'Alla fyra','Fram venstre':'Vänster fram','Fram høyre':'Höger fram','Bak venstre':'Vänster bak','Bak høyre':'Höger bak',
+  'Velg behandling for å vise relevante felt.':'Välj behandling för att visa relevanta fält.','Skriv arbeidsbeskrivelse eller observasjoner …':'Skriv arbetsbeskrivning eller observationer …','Kontroller hovbalanse og dokumenter før og etter behandling.':'Kontrollera hovbalansen och dokumentera före och efter behandling.','Bildene knyttes automatisk til valgt hest og jobb.':'Bilderna kopplas automatiskt till vald häst och jobb.',
+  'Jobboversikt':'Jobböversikt','Se hva som er planlagt, pågår og er ferdig.':'Se vad som är planerat, pågår och är klart.','Bilder på riktig hest':'Bilder på rätt häst','Før-, underveis- og etterbilder samlet automatisk.':'Före-, under- och efterbilder samlas automatiskt.','Full historikk':'Full historik','Finn tidligere behandlinger på sekunder.':'Hitta tidigare behandlingar på några sekunder.','Økonomikontroll':'Ekonomikontroll','Se omsetning og hva som ikke er fakturert.':'Se omsättning och vad som inte har fakturerats.',
+  'Dagens jobber':'Dagens jobb','Hovkontroll og skoing':'Hovkontroll och skoning','Beskjæring og oppfølging':'Verkning och uppföljning','Etterkontroll':'Efterkontroll','Forrige måned':'Förra månaden','Rapport sendt':'Rapport skickad','Aktuell hovstatus':'Aktuell hovstatus','Eier':'Ägare','Åpne behandling':'Öppna behandling','Siste bilder':'Senaste bilder','Alle bilder på':'Alla bilder på','Klikk på et bilde for stor visning.':'Klicka på en bild för stor visning.','Hovbalanse':'Hovbalans','Bevegelse':'Rörelse','Ingen nye funn':'Inga nya fynd','Lagre hovkontroll':'Spara hovkontroll','Gå til behandling':'Gå till behandling','Lagre behandling':'Spara behandling','Avslutt og åpne rapport':'Avsluta och öppna rapport','Behandlingsbilder':'Behandlingsbilder',
+  'Omsetning denne måneden':'Omsättning denna månad','Utførte jobber':'Utförda jobb','Gjennomsnitt':'Genomsnitt','Ikke fakturert':'Inte fakturerat','Se jobber':'Se jobb','Utestående':'Utestående','fakturaer':'fakturor','Omsetning siste seks måneder':'Omsättning de senaste sex månaderna','Siste jobber':'Senaste jobb','Beløp':'Belopp','Fakturert':'Fakturerat','Jobbrapport':'Jobbrapport','Stall':'Stall','Funn':'Fynd','Send rapport på e-post':'Skicka rapport via e-post','Marker ferdig':'Markera klar','bilder':'bilder',
+  'Før behandling':'Före behandling','Registrert funn':'Registrerat fynd','Under behandling':'Under behandling','Etter behandling':'Efter behandling','Dokumentasjon':'Dokumentation','Oppfølging':'Uppföljning','Hovbilde':'Hovbild','Forstørret bilde':'Förstorad bild','Lukk':'Stäng','Forrige bilde':'Föregående bild','Neste bilde':'Nästa bild',
+  'Be om testversjon':'Begär testversion','Fyll inn navn og e-post. Du får en e-post med lenke for å opprette passord og logge inn i Rett i Lomma.':'Fyll i namn och e-post. Du får ett e-postmeddelande med en länk för att skapa ett lösenord och logga in i Rett i Lomma.','Navn eller firmanavn':'Namn eller företagsnamn','E-post':'E-post','Send invitasjon':'Skicka inbjudan','Første måned er gratis. Dersom betalingsinformasjon ikke registreres innen 30 dager, sendes et varsel og kontoen fryses.':'Första månaden är gratis. Om betalningsinformation inte registreras inom 30 dagar skickas en varning och kontot fryses.',
+  'Jobben er opprettet og klar':'Jobbet har skapats och är klart','Hovkontrollen er lagret':'Hovkontrollen har sparats','Behandlingen er lagret':'Behandlingen har sparats','Fakturagrunnlag åpnet':'Fakturaunderlaget har öppnats','Rapporten er markert som ferdig':'Rapporten har markerats som klar','bilde(r) klare':'bild(er) klara','Bildet er lagret på':'Bilden har sparats på','Valgt behandling:':'Vald behandling:','Valgt:':'Vald:','Du kan nå velge hov, skrive notat og legge til bilder.':'Du kan nu välja hov, skriva en anteckning och lägga till bilder.','Bildene og notatet lagres på':'Bilderna och anteckningen sparas på',
+  'Februar':'Februari','Mars':'Mars','April':'April','Mai':'Maj','Juni':'Juni','Juli':'Juli','august':'augusti','år':'år','Norsk varmblod':'Svenskt varmblod','Hovsprekk framhov venstre':'Hovspricka vänster framhov','Beskjæring, ny sko og sålebeskyttelse':'Verkning, ny sko och sulskydd','Sår stråle bakhov høyre':'Öm stråle höger bakhov','Beskjæring, rens og oppfølging':'Verkning, rengöring och uppföljning'
+ },
+ en:{
+  'Rett i Lomma – Hovslager':'Rett i Lomma – Farrier','HOVSLAGER':'FARRIER','Første måned gratis':'First month free','Deretter 500 kr per måned. Laget for deg som jobber alene.':'Then NOK 500 per month. Made for independent farriers.','Spørsmål eller tilgang?':'Questions or access?','Språk / Language':'Language',
+  'Les inn jobb':'Register job','Jobboversikt':'Job overview','Hester':'Horses','Bilder':'Photos','Hovkontroll':'Hoof check','Behandling':'Treatment','Økonomioversikt':'Financial overview','Rapporter':'Reports',
+  'Den raskeste veien fra kunde til ferdig registrert hovslagerjobb.':'The fastest way from customer to a fully registered farrier job.','Planlagte, pågående og ferdige jobber på ett sted.':'Planned, ongoing and completed jobs in one place.','Historikk, bilder og behandling på riktig hest.':'History, photos and treatment for the correct horse.','Dokumenter før, under og etter behandlingen.':'Document before, during and after treatment.','Registrer funn på riktig hov.':'Record findings on the correct hoof.','Velg behandling fra rullegardin og skriv hva som er utført.':'Choose a treatment and describe the work completed.','Se omsetning, fakturering og utestående.':'View revenue, invoicing and outstanding amounts.','Samle bilder, behandling og notater i én rapport.':'Combine photos, treatment and notes in one report.',
+  'Hovedfunksjon':'Main feature','Start innlesing':'Start registration','Rask registrering':'Quick registration','Neste jobb':'Next job','Fem enkle steg fra kunde til opprettet jobb.':'Five simple steps from customer to a created job.','Kunde':'Customer','Hest':'Horse','Dato og tid':'Date and time','Status':'Status','Jobbdetaljer':'Job details','Notat':'Notes','Neste besøk':'Next visit','Pris':'Price','Utført arbeid':'Work completed','Behandlingsvalg':'Treatment selection','Ta bilde':'Take photo','Ta / velg bilde':'Take / choose photo','Ta / velg bilder':'Take / choose photos','Ta bilde eller velg bilder':'Take a photo or choose photos','Start jobb':'Start job','Kom i gang':'Get started','Prøv uten kostnad':'Try it free','Få jobboversikt, bilder, behandlinger og økonomi samlet. Deretter 500 kr per måned.':'Keep jobs, photos, treatments and finances together. Then NOK 500 per month.',
+  'Velg kunde, hest og behandling. Legg til bilder og notater, og få alt lagret automatisk på riktig hest. Har du prislister, kundelister og hestelister digitalt, kan de lastes opp.':'Choose a customer, horse and treatment. Add photos and notes, and everything is saved automatically to the correct horse. Digital price, customer and horse lists can be uploaded.',
+  'Ny kunde …':'New customer …','Ny hest …':'New horse …','Planlagt':'Planned','Pågår':'In progress','Ferdig':'Completed','Velg behandling …':'Choose treatment …','Beskjæring':'Trim','Skoing':'Shoeing','Omskoing':'Reset shoes','Barfot':'Barefoot','Limsko':'Glue-on shoes','Sålebeskyttelse':'Sole protection','Brodder':'Studs','Hovsprekk':'Hoof crack','Sur stråle':'Thrush','Byll':'Abscess','Annet':'Other','Alle fire':'All four','Fram venstre':'Left front','Fram høyre':'Right front','Bak venstre':'Left hind','Bak høyre':'Right hind',
+  'Velg behandling for å vise relevante felt.':'Choose a treatment to display relevant fields.','Skriv arbeidsbeskrivelse eller observasjoner …':'Enter work details or observations …','Kontroller hovbalanse og dokumenter før og etter behandling.':'Check hoof balance and document before and after treatment.','Bildene knyttes automatisk til valgt hest og jobb.':'Photos are automatically linked to the selected horse and job.',
+  'Se hva som er planlagt, pågår og er ferdig.':'See what is planned, in progress and completed.','Bilder på riktig hest':'Photos on the correct horse','Før-, underveis- og etterbilder samlet automatisk.':'Before, progress and after photos are collected automatically.','Full historikk':'Complete history','Finn tidligere behandlinger på sekunder.':'Find previous treatments in seconds.','Økonomikontroll':'Financial control','Se omsetning og hva som ikke er fakturert.':'View revenue and work not yet invoiced.',
+  'Dagens jobber':'Today’s jobs','Hovkontroll og skoing':'Hoof check and shoeing','Beskjæring og oppfølging':'Trimming and follow-up','Etterkontroll':'Follow-up check','Forrige måned':'Last month','Rapport sendt':'Report sent','Aktuell hovstatus':'Current hoof status','Eier':'Owner','Åpne behandling':'Open treatment','Siste bilder':'Latest photos','Alle bilder på':'All photos for','Klikk på et bilde for stor visning.':'Click a photo for a larger view.','Hovbalanse':'Hoof balance','Bevegelse':'Movement','Ingen nye funn':'No new findings','Lagre hovkontroll':'Save hoof check','Gå til behandling':'Go to treatment','Lagre behandling':'Save treatment','Avslutt og åpne rapport':'Finish and open report','Behandlingsbilder':'Treatment photos',
+  'Omsetning denne måneden':'Revenue this month','Utførte jobber':'Completed jobs','Gjennomsnitt':'Average','Ikke fakturert':'Not invoiced','Se jobber':'View jobs','Utestående':'Outstanding','fakturaer':'invoices','Omsetning siste seks måneder':'Revenue over the last six months','Siste jobber':'Latest jobs','Beløp':'Amount','Fakturert':'Invoiced','Jobbrapport':'Job report','Stall':'Stable','Funn':'Findings','Send rapport på e-post':'Email report','Marker ferdig':'Mark completed','bilder':'photos',
+  'Før behandling':'Before treatment','Registrert funn':'Recorded finding','Under behandling':'During treatment','Etter behandling':'After treatment','Dokumentasjon':'Documentation','Oppfølging':'Follow-up','Hovbilde':'Hoof photo','Forstørret bilde':'Enlarged photo','Lukk':'Close','Forrige bilde':'Previous photo','Neste bilde':'Next photo',
+  'Be om testversjon':'Request a trial','Fyll inn navn og e-post. Du får en e-post med lenke for å opprette passord og logge inn i Rett i Lomma.':'Enter your name and email address. You will receive an email with a link to create a password and sign in to Rett i Lomma.','Navn eller firmanavn':'Name or company name','E-post':'Email','Send invitasjon':'Send invitation','Første måned er gratis. Dersom betalingsinformasjon ikke registreres innen 30 dager, sendes et varsel og kontoen fryses.':'The first month is free. If payment information is not registered within 30 days, a warning is sent and the account is frozen.',
+  'Jobben er opprettet og klar':'The job has been created and is ready','Hovkontrollen er lagret':'The hoof check has been saved','Behandlingen er lagret':'The treatment has been saved','Fakturagrunnlag åpnet':'Invoice details opened','Rapporten er markert som ferdig':'The report has been marked as completed','bilde(r) klare':'photo(s) ready','Bildet er lagret på':'The photo has been saved to','Valgt behandling:':'Selected treatment:','Valgt:':'Selected:','Du kan nå velge hov, skrive notat og legge til bilder.':'You can now select a hoof, enter notes and add photos.','Bildene og notatet lagres på':'The photos and notes are saved to',
+  'Februar':'February','Mars':'March','April':'April','Mai':'May','Juni':'June','Juli':'July','august':'August','år':'years','Norsk varmblod':'Norwegian Warmblood','Hovsprekk framhov venstre':'Hoof crack, left front hoof','Beskjæring, ny sko og sålebeskyttelse':'Trim, new shoe and sole protection','Sår stråle bakhov høyre':'Sore frog, right hind hoof','Beskjæring, rens og oppfølging':'Trim, cleaning and follow-up'
+ }
+};
+let demoLanguage=localStorage.getItem('hovdemo-language')||'no';
+const originalText=new WeakMap(),originalAttributes=new WeakMap();
+function translateString(value,lang){
+ if(lang==='no'||!value)return value;
+ const dict=DEMO_TRANSLATIONS[lang]||{};
+ let out=value;
+ Object.keys(dict).sort((a,b)=>b.length-a.length).forEach(key=>{out=out.split(key).join(dict[key])});
+ return out;
+}
+function translateElement(root=document){
+ const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+ let node;
+ while(node=walker.nextNode()){
+  if(!node.nodeValue.trim()||['SCRIPT','STYLE'].includes(node.parentElement?.tagName))continue;
+  if(!originalText.has(node))originalText.set(node,node.nodeValue);
+  node.nodeValue=translateString(originalText.get(node),demoLanguage);
+ }
+ root.querySelectorAll?.('[placeholder],[aria-label],[title],option').forEach(el=>{
+  if(!originalAttributes.has(el))originalAttributes.set(el,{placeholder:el.getAttribute('placeholder'),aria:el.getAttribute('aria-label'),title:el.getAttribute('title'),text:el.tagName==='OPTION'?el.textContent:null});
+  const o=originalAttributes.get(el);
+  if(o.placeholder!==null)el.setAttribute('placeholder',translateString(o.placeholder,demoLanguage));
+  if(o.aria!==null)el.setAttribute('aria-label',translateString(o.aria,demoLanguage));
+  if(o.title!==null)el.setAttribute('title',translateString(o.title,demoLanguage));
+  if(o.text!==null)el.textContent=translateString(o.text,demoLanguage);
+ });
+ document.documentElement.lang=demoLanguage==='no'?'nb':demoLanguage;
+ document.title=translateString('Rett i Lomma – Hovslager',demoLanguage);
+}
+function setDemoLanguage(lang){
+ demoLanguage=['no','sv','en'].includes(lang)?lang:'no';
+ localStorage.setItem('hovdemo-language',demoLanguage);
+ document.getElementById('demoLanguage').value=demoLanguage;
+ const page=currentDemoPage();
+ originalText.clear?.();
+ go(page);
+ translateElement(document);
+ trackEvent('language_changed',{language:demoLanguage});
+}
+const languageObserver=new MutationObserver(records=>records.forEach(record=>record.addedNodes.forEach(node=>{if(node.nodeType===1||node.nodeType===3)translateElement(node.nodeType===1?node:node.parentElement)})));
+languageObserver.observe(document.body,{childList:true,subtree:true});
+
 localStorage.setItem('page','lesinn');
 go('lesinn');
+document.getElementById('demoLanguage').value=demoLanguage;
+translateElement(document);
 </script>
 </body></html>
-
-<style>.debug,#debug,#diagnose,#diagnostics,pre.debug{display:none!important}</style>
