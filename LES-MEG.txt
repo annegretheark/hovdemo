@@ -1,0 +1,15 @@
+HOVSLAGER DEMO 2.0 – HELT NY DEMO
+
+Denne pakken inneholder kun den nye demoen som skal ERSTATTE den gamle Hovdemoen.
+Den er bygget fra bunnen av og bruker ikke gammel Hovdemo-kode.
+
+Publisering:
+1. Gå til document root for demohovslager.rettilomma.com.
+2. Slett gammel index.html og gammel assets-mappe i dette underdomenet.
+3. Last opp index.html og assets-mappen fra denne pakken direkte i document root.
+4. Ikke last disse filene opp til root på rettilomma.com.
+5. Hovedsiden rettilomma.com med alle app-knappene skal stå urørt.
+6. Hovslagerdemo-knappen skal fortsatt peke til https://demohovslager.rettilomma.com/
+
+Kontroll:
+Den nye siden viser teksten "Ny Hovslager Demo 2.0" på forsiden og appnavnet "Hovslager" i venstremenyen.
